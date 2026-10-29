@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shine Star BnB, Amritsar | Hotel Website Demo</title>
+    <meta name="description" content="Explore the Shine Star BnB website concept for Amritsar, featuring accommodation showcases, location information, and convenient hotel enquiries.">
+    <meta name="theme-color" content="#14253D">
+    
+    <!-- Canonical URL placeholder -->
+    <!-- <link rel="canonical" href="https://www.yourdomain.com/"> -->
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Shine Star BnB, Amritsar | Hotel Website Demo">
+    <meta property="og:description" content="Explore the Shine Star BnB website concept for Amritsar, featuring accommodation showcases, location information, and convenient hotel enquiries.">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "Shine Star BnB",
+      "description": "A 3-Star Hotel located in the Katra Ahluwalia area of Amritsar, near Jallianwala Bagh.",
+      "starRating": {
+        "@type": "Rating",
+        "ratingValue": "3"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.1",
+        "reviewCount": "166"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mangal Singh Mahna Street, opposite Hotel MARS, Jallan Wala Bagh, Katra Ahluwalia",
+        "addressLocality": "Amritsar",
+        "addressRegion": "Punjab",
+        "postalCode": "143006",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91 78883 88895",
+      "checkinTime": "11:30:00",
+      "checkoutTime": "11:00:00"
+    }
+    </script>
+
+    <style>
+        /* CSS VARIABLES */
+        :root {
+            --primary-color: #14253D;      /* Deep navy */
+            --secondary-color: #C6A56B;    /* Champagne gold */
+            --bg-light: #FAF7F2;           /* Warm ivory */
+            --bg-white: #FFFFFF;           /* White */
+            --text-dark: #252525;          /* Dark text */
+            --text-grey: #555555;          /* Body text */
+            --bg-grey: #F2F3F5;            /* Soft grey */
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            
+            --transition: all 0.3s ease;
+            --border-radius: 4px;
+            --box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --header-height: 80px;
+        }
+
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--bg-white);
+        }
+
+        .btn-primary:hover {
+            background-color: #b5925a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(198, 165, 107, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--bg-white);
+            border: 1px solid var(--bg-white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-white);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-grey);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION BAR */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: transparent;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header.scrolled .logo,
+        .header.scrolled .nav-links a {
+            color: var(--primary-color);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bg-white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .logo i {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--bg-white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--bg-white);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .header.scrolled .menu-toggle {
+            color: var(--primary-color);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(20, 37, 61, 0.6), rgba(20, 37, 61, 0.4)), url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=400&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--bg-white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            margin-top: var(--header-height);
+        }
+
+        .hero-label {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--bg-white);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-location {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            opacity: 0.9;
+        }
+
+        /* QUICK INFO STRIP */
+        .quick-info {
+            background-color: var(--bg-white);
+            padding: 30px 0;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .info-item {
+            padding: 0 15px;
+            border-right: 1px solid var(--bg-grey);
+        }
+
+        .info-item:last-child {
+            border-right: none;
+        }
+
+        .info-item i {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .info-item h4 {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: var(--text-grey);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .info-item p {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            background-color: var(--bg-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img {
+            position: relative;
+        }
+
+        .about-img img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .about-img::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--secondary-color);
+            border-radius: var(--border-radius);
+            z-index: -1;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            font-family: var(--font-body);
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-grey);
+            margin-bottom: 20px;
+        }
+
+        .about-features {
+            margin-top: 30px;
+        }
+
+        .about-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .about-features i {
+            color: var(--secondary-color);
+        }
+
+        /* ROOMS SECTION */
+        .rooms-section {
+            background-color: var(--bg-white);
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .room-card {
+            background-color: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .room-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .room-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .room-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .room-card:hover .room-img img {
+            transform: scale(1.05);
+        }
+
+        .room-demo-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(20, 37, 61, 0.8);
+            color: #fff;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        .room-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .room-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .room-content p {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .room-content .btn {
+            width: 100%;
+        }
+
+        /* GALLERY SECTION */
+        .gallery-section {
+            background-color: var(--bg-light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 250px;
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item.tall {
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 37, 61, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-overlay i {
+            color: var(--bg-white);
+            font-size: 2rem;
+            transform: scale(0.5);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item:hover .gallery-overlay i {
+            transform: scale(1);
+        }
+
+        /* LIGHTBOX */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 4px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            color: var(--secondary-color);
+        }
+
+        /* LOCATION SECTION */
+        .location-section {
+            background-color: var(--bg-white);
+        }
+
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background-color: var(--bg-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .location-content {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .location-content h3 {
+            margin-bottom: 20px;
+        }
+
+        .location-address {
+            margin-bottom: 30px;
+        }
+
+        .location-address p {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--text-grey);
+        }
+
+        .location-address i {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-top: 4px;
+        }
+
+        .attractions-list {
+            margin-bottom: 30px;
+        }
+
+        .attractions-list h4 {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .attractions-list ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-grey);
+        }
+
+        .attractions-list ul li::before {
+            content: '\f111';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 6px;
+            position: absolute;
+            left: 0;
+            top: 8px;
+            color: var(--secondary-color);
+        }
+
+        .location-map {
+            min-height: 400px;
+            height: 100%;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* REVIEWS SECTION */
+        .reviews-section {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            text-align: center;
+        }
+
+        .reviews-section h2 {
+            color: var(--bg-white);
+        }
+
+        .review-box {
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .rating-score {
+            font-size: 3.5rem;
+            font-family: var(--font-heading);
+            color: var(--secondary-color);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .review-count {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        /* ENQUIRY SECTION */
+        .enquiry-section {
+            background-color: var(--bg-light);
+        }
+
+        .enquiry-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(198, 165, 107, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-note {
+            font-size: 0.85rem;
+            color: var(--text-grey);
+            margin-top: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .form-note i {
+            color: #25D366; /* WhatsApp Green */
+            font-size: 1.2rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #0c1726;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            background-color: var(--bg-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--bg-light);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--bg-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .contact-card h4 {
+            margin-bottom: 15px;
+            font-family: var(--font-body);
+        }
+
+        .contact-card p {
+            color: var(--text-grey);
+            margin-bottom: 20px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: #0a1320;
+            color: #a0aabf;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand h2 {
+            color: var(--bg-white);
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-title {
+            color: var(--bg-white);
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .footer-info li {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .footer-info i {
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .demo-note {
+            background-color: rgba(198, 165, 107, 0.1);
+            color: var(--secondary-color);
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 20px;
+            border: 1px dashed var(--secondary-color);
+        }
+
+        /* MOBILE BOTTOM ACTION BAR */
+        .mobile-action-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-white);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .action-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 15px;
+            font-weight: 600;
+            color: var(--bg-white);
+            text-decoration: none;
+        }
+
+        .action-call {
+            background-color: var(--primary-color);
+        }
+
+        .action-wa {
+            background-color: #25D366;
+        }
+
+        /* SCROLL TO TOP */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: var(--bg-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* ANIMATIONS */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 3.5rem; }
+            .info-grid { grid-template-columns: repeat(2, 1fr); gap: 30px 20px; }
+            .info-item { border-right: none; }
+            .info-item:nth-child(odd) { border-right: 1px solid var(--bg-grey); }
+            .rooms-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding-bottom: 50px; } /* Space for mobile bar */
+            .mobile-action-bar { display: flex; }
+            .scroll-top { bottom: 70px; right: 20px; }
+            
+            .menu-toggle { display: block; }
+            
+            .nav-links {
+                position: fixed;
+                top: var(--header-height);
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - var(--header-height));
+                background-color: var(--primary-color);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 40px;
+                transition: var(--transition);
+            }
+
+            .nav-links.active { left: 0; }
+            .nav-links a { font-size: 1.2rem; }
+            
+            .header .btn-primary { display: none; } /* Hide enquire button in nav on mobile */
+
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; }
+            .hero-buttons { flex-direction: column; gap: 15px; }
+            
+            .about-grid { grid-template-columns: 1fr; }
+            .about-img { order: -1; }
+            
+            .rooms-grid { grid-template-columns: 1fr; }
+            
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item.large { grid-column: span 1; grid-row: span 1; }
+            
+            .location-container { grid-template-columns: 1fr; }
+            .location-map { min-height: 300px; }
+            
+            .form-grid { grid-template-columns: 1fr; }
+            .enquiry-container { padding: 30px 20px; }
+            
+            .contact-grid { grid-template-columns: 1fr; }
+            
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 200px; }
+            .info-grid { grid-template-columns: 1fr; }
+            .info-item:nth-child(odd) { border-right: none; border-bottom: 1px solid var(--bg-grey); padding-bottom: 20px; }
+            .info-item:nth-child(even) { border-bottom: 1px solid var(--bg-grey); padding-bottom: 20px; }
+            .info-item:last-child { border-bottom: none; padding-bottom: 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .fade-up { transition: none; opacity: 1; transform: none; }
+            .btn, .room-card, .gallery-item img, .gallery-overlay { transition: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-hotel"></i> SHINE STAR BnB
+            </a>
+            
+            <nav class="nav-links" id="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#rooms">Rooms</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#location">Location</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            
+            <div class="nav-right">
+                <a href="#enquiry" class="btn btn-primary">Enquire Now</a>
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="hero-content fade-up">
+                <span class="hero-label">Your Stay In Amritsar</span>
+                <h1>Comfortable Stays, Memorable Experiences</h1>
+                <p>Discover a welcoming stay in Amritsar, with convenient access to the city's iconic attractions.</p>
+                <div class="hero-buttons">
+                    <a href="#enquiry" class="btn btn-primary">Enquire About Your Stay</a>
+                    <a href="#rooms" class="btn btn-secondary">Explore Our Rooms</a>
+                </div>
+                <div class="hero-location">
+                    <i class="fa-solid fa-location-dot"></i> Katra Ahluwalia, Amritsar
+                </div>
+            </div>
+        </section>
+
+        <!-- QUICK INFO STRIP -->
+        <div class="quick-info">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <h4>Location</h4>
+                        <p>Katra Ahluwalia, Amritsar</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-camera-retro"></i>
+                        <h4>Nearby Attractions</h4>
+                        <p>Golden Temple & Jallianwala Bagh</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <h4>Check-In</h4>
+                        <p>11:30 AM</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <h4>Check-Out</h4>
+                        <p>11:00 AM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT SECTION -->
+        <section class="section-padding about-section" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text fade-up">
+                        <h3>A Welcoming Base to Explore Amritsar</h3>
+                        <h2>Welcome to Shine Star BnB</h2>
+                        <p>Experience a warm and inviting atmosphere right in the heart of Amritsar. Shine Star BnB offers a comfortable retreat for travelers looking to explore the rich cultural heritage of Punjab.</p>
+                        <p>Our website is designed to help you discover our property, learn about our convenient location near iconic landmarks, and provide a simple way to get in touch with us directly for your stay requirements.</p>
+                        
+                        <ul class="about-features">
+                            <li><i class="fa-solid fa-check"></i> Convenient location in Katra Ahluwalia</li>
+                            <li><i class="fa-solid fa-check"></i> Easy access to Golden Temple & Jallianwala Bagh</li>
+                            <li><i class="fa-solid fa-check"></i> Simple and direct enquiry process</li>
+                        </ul>
+                    </div>
+                    <div class="about-img fade-up">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Shine Star BnB Reception Area Concept">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROOMS SECTION -->
+        <section class="section-padding rooms-section" id="rooms">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <h2>Find Your Ideal Stay</h2>
+                    <p>Explore accommodation options for your visit to Amritsar.</p>
+                </div>
+                
+                <div class="rooms-grid">
+                    <!-- Room Card 1 -->
+                    <div class="room-card fade-up">
+                        <div class="room-img">
+                            <span class="room-demo-badge">Sample Layout</span>
+                            <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=600&q=80" alt="Standard Room Demo">
+                        </div>
+                        <div class="room-content">
+                            <h3>Standard Room</h3>
+                            <p>A cozy and comfortable room perfect for solo travelers or couples looking for a relaxing stay in the city.</p>
+                            <button class="btn btn-outline" onclick="selectRoom('Standard Room')">Enquire About This Room</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Room Card 2 -->
+                    <div class="room-card fade-up" style="transition-delay: 0.1s;">
+                        <div class="room-img">
+                            <span class="room-demo-badge">Sample Layout</span>
+                            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=600&q=80" alt="Deluxe Room Demo">
+                        </div>
+                        <div class="room-content">
+                            <h3>Deluxe Room</h3>
+                            <p>Enjoy extra space and enhanced comfort with our beautifully appointed Deluxe room, offering a restful environment.</p>
+                            <button class="btn btn-outline" onclick="selectRoom('Deluxe Room')">Enquire About This Room</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Room Card 3 -->
+                    <div class="room-card fade-up" style="transition-delay: 0.2s;">
+                        <div class="room-img">
+                            <span class="room-demo-badge">Sample Layout</span>
+                            <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=600&q=80" alt="Family Room Demo">
+                        </div>
+                        <div class="room-content">
+                            <h3>Family Room</h3>
+                            <p>Spacious accommodation designed for families or small groups traveling together, ensuring everyone has a comfortable stay.</p>
+                            <button class="btn btn-outline" onclick="selectRoom('Family Room')">Enquire About This Room</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Developer Note: Room details are illustrative demo content for presentation purposes. -->
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section class="section-padding gallery-section" id="gallery">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <h2>Take a Look Around</h2>
+                    <p>Get a glimpse of the comfortable spaces and welcoming environment.</p>
+                </div>
+                
+                <div class="gallery-grid fade-up">
+                    <!-- Illustrative demo images -->
+                    <div class="gallery-item large" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=400&q=80" alt="Hotel Interior Design">
+                        <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=400&q=80" alt="Comfortable Bedroom">
+                        <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=400&q=80" alt="Hotel Welcome Area">
+                        <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item tall" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=400&q=80" alt="Hotel Ambience">
+                        <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=400&q=80" alt="Room Details">
+                        <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=400&q=80" alt="Property Exterior Concept">
+                        <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTBOX -->
+        <div class="lightbox" id="lightbox">
+            <span class="lightbox-close" id="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="" alt="Enlarged Image">
+        </div>
+
+        <!-- LOCATION SECTION -->
+        <section class="section-padding location-section" id="location">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <h2>Stay Close to the Heart of Amritsar</h2>
+                    <p>Conveniently located for visitors exploring the rich history and culture.</p>
+                </div>
+                
+                <div class="location-container fade-up">
+                    <div class="location-content">
+                        <h3>Shine Star BnB</h3>
+                        <div class="location-address">
+                            <p><i class="fa-solid fa-location-dot"></i> Mangal Singh Mahna Street, opposite Hotel MARS, Jallan Wala Bagh, Katra Ahluwalia, Amritsar, Punjab 143006, India.</p>
+                            <p><i class="fa-solid fa-phone"></i> +91 78883 88895</p>
+                        </div>
+                        
+                        <div class="attractions-list">
+                            <h4>Nearby Landmarks</h4>
+                            <ul>
+                                <li>Golden Temple</li>
+                                <li>Jallianwala Bagh</li>
+                                <li>Local Markets and Shopping Areas</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://www.google.com/maps/search/?api=1&query=Shine+Star+BnB+Katra+Ahluwalia+Amritsar" target="_blank" class="btn btn-outline" style="align-self: flex-start;">
+                            <i class="fa-solid fa-map"></i> Get Directions
+                        </a>
+                    </div>
+                    <div class="location-map">
+                        <!-- Embedded map centered roughly on Amritsar Katra Ahluwalia area -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1717.3320641193356!2d74.8761141!3d31.6212458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391964a78120b00b%3A0xb36de882b528be48!2sKatra%20Ahluwalia%2C%20Amritsar%2C%20Punjab!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GUEST REVIEWS -->
+        <section class="section-padding reviews-section">
+            <div class="container fade-up">
+                <h2>Guest Trust</h2>
+                <div class="review-box">
+                    <div class="rating-score">4.1 <span style="font-size: 2rem;">/ 5</span></div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star-half-stroke"></i>
+                    </div>
+                    <div class="review-count">Based on 166 Google Reviews</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Shine+Star+BnB+Amritsar" target="_blank" class="btn btn-secondary">View on Google Maps</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ENQUIRY FORM SECTION -->
+        <section class="section-padding enquiry-section" id="enquiry">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <h2>Planning Your Visit to Amritsar?</h2>
+                    <p>Get in touch with Shine Star BnB to enquire about your preferred dates and accommodation options.</p>
+                </div>
+                
+                <div class="enquiry-container fade-up">
+                    <form id="enquiryForm" onsubmit="handleEnquiry(event)">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" class="form-control" required placeholder="John Doe">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="phoneNum">Phone Number *</label>
+                                <input type="tel" id="phoneNum" class="form-control" required placeholder="+91 00000 00000">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="checkIn">Check-in Date *</label>
+                                <input type="date" id="checkIn" class="form-control" required onchange="updateCheckoutMin()">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="checkOut">Check-out Date *</label>
+                                <input type="date" id="checkOut" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="guests">Number of Guests *</label>
+                                <input type="number" id="guests" class="form-control" min="1" required placeholder="e.g., 2">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="roomPref">Room Preference</label>
+                                <select id="roomPref" class="form-control">
+                                    <option value="Not Sure / Any">Not Sure / Any</option>
+                                    <option value="Standard Room">Standard Room</option>
+                                    <option value="Deluxe Room">Deluxe Room</option>
+                                    <option value="Family Room">Family Room</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label class="form-label" for="message">Additional Message</label>
+                                <textarea id="message" class="form-control" placeholder="Any special requests or questions?"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-note">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <div>
+                                <strong>Note:</strong> Submitting this form will open WhatsApp to send your enquiry directly to the hotel. No reservation is confirmed until confirmed by the hotel staff.
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn submit-btn btn-primary">
+                            <i class="fa-brands fa-whatsapp"></i> Send Enquiry via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="section-padding contact-section" id="contact">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <h2>Get in Touch</h2>
+                    <p>We are here to assist you with your booking and stay.</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-card fade-up">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h4>Address</h4>
+                        <p>Mangal Singh Mahna Street, opposite Hotel MARS, Jallan Wala Bagh, Katra Ahluwalia, Amritsar, Punjab 143006</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Shine+Star+BnB+Katra+Ahluwalia+Amritsar" target="_blank" class="btn btn-outline">Get Directions</a>
+                    </div>
+                    
+                    <div class="contact-card fade-up" style="transition-delay: 0.1s;">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <h4>Phone</h4>
+                        <p>+91 78883 88895</p>
+                        <br>
+                        <a href="tel:+917888388895" class="btn btn-outline">Call Hotel</a>
+                    </div>
+                    
+                    <div class="contact-card fade-up" style="transition-delay: 0.2s;">
+                        <div class="contact-icon">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <h4>WhatsApp</h4>
+                        <p>Message us directly on WhatsApp for quick responses.</p>
+                        <a href="https://wa.me/917888388895" target="_blank" class="btn btn-outline">Message Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2><i class="fa-solid fa-hotel" style="color: var(--secondary-color);"></i> SHINE STAR BnB</h2>
+                    <p>Your stay in Amritsar starts with a simple enquiry.</p>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#rooms">Rooms</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#location">Location</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Information</h4>
+                    <ul class="footer-info">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Katra Ahluwalia, Amritsar, Punjab 143006</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="tel:+917888388895">+91 78883 88895</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Check-in: 11:30 AM<br>Check-out: 11:00 AM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Shine Star BnB. All Rights Reserved.</p>
+                <p>Website concept designed by Webprime.</p>
+            </div>
+            
+            <div class="demo-note">
+                <strong>Disclaimer:</strong> This is a demonstration website concept created for showcase purposes only and is not the officially approved website of Shine Star BnB.
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE BOTTOM ACTION BAR -->
+    <div class="mobile-action-bar">
+        <a href="tel:+917888388895" class="action-btn action-call">
+            <i class="fa-solid fa-phone"></i> Call
+        </a>
+        <a href="https://wa.me/917888388895" target="_blank" class="action-btn action-wa">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Sticky Header & Scroll To Top Visibility
+        const header = document.getElementById('header');
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Scroll To Top Action
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        const navItems = navLinks.querySelectorAll('a');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
+        // Intersection Observer for fade-up animations
+        const fadeUpElements = document.querySelectorAll('.fade-up');
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        fadeUpElements.forEach(el => {
+            appearOnScroll.observe(el);
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        function openLightbox(element) {
+            const imgSrc = element.querySelector('img').src;
+            lightboxImg.src = imgSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Room Selection Pre-fill
+        function selectRoom(roomName) {
+            const selectElement = document.getElementById('roomPref');
+            selectElement.value = roomName;
+            document.getElementById('enquiry').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Set minimum date for Date inputs to today
+        const today = new Date().toISOString().split('T')[0];
+        const checkInInput = document.getElementById('checkIn');
+        const checkOutInput = document.getElementById('checkOut');
+        
+        checkInInput.min = today;
+        
+        function updateCheckoutMin() {
+            if (checkInInput.value) {
+                const checkInDate = new Date(checkInInput.value);
+                // Set min checkout to day after checkin
+                checkInDate.setDate(checkInDate.getDate() + 1);
+                const nextDay = checkInDate.toISOString().split('T')[0];
+                checkOutInput.min = nextDay;
+                
+                // If current checkout is before new min, reset it
+                if(checkOutInput.value && checkOutInput.value < nextDay) {
+                    checkOutInput.value = nextDay;
+                }
+            }
+        }
+
+        // Form Validation and WhatsApp Logic
+        function handleEnquiry(event) {
+            event.preventDefault();
+            
+            // Collect Form Data
+            const name = document.getElementById('fullName').value.trim();
+            const phoneInput = document.getElementById('phoneNum').value.trim();
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = document.getElementById('checkOut').value;
+            const guests = document.getElementById('guests').value;
+            const roomPref = document.getElementById('roomPref').value;
+            const message = document.getElementById('message').value.trim();
+            
+            // Basic Check-out validation (must be after check-in)
+            if (new Date(checkOut) <= new Date(checkIn)) {
+                alert("Check-out date must be after check-in date.");
+                return;
+            }
+
+            // WhatsApp Number Config (Use owner's real number formatted for WA)
+            const waNumber = "917888388895";
+            
+            // Construct the message
+            let waMessage = `Hello Shine Star BnB,\nI would like to enquire about a stay.\n\n`;
+            waMessage += `*Name:* ${name}\n`;
+            waMessage += `*Phone:* ${phoneInput}\n`;
+            waMessage += `*Check-in:* ${checkIn}\n`;
+            waMessage += `*Check-out:* ${checkOut}\n`;
+            waMessage += `*Guests:* ${guests}\n`;
+            waMessage += `*Room Preference:* ${roomPref}\n`;
+            
+            if (message) {
+                waMessage += `\n*Additional Message:*\n${message}\n`;
+            }
+            
+            waMessage += `\nPlease share your availability and applicable room rates.\nThank you.`;
+
+            // URL Encode the message
+            const encodedMessage = encodeURIComponent(waMessage);
+            
+            // Create WhatsApp Link
+            const waLink = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+            
+            // Try to open WhatsApp
+            try {
+                window.open(waLink, '_blank');
+            } catch (error) {
+                alert("It seems WhatsApp couldn't be opened. Please contact us directly at +91 78883 88895.");
+            }
+        }
+    </script>
+</body>
+</html>
